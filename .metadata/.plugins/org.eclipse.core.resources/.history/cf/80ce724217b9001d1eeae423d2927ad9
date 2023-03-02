@@ -1,0 +1,5 @@
+package com.salla.employeeservice.dto;
+
+public class EmployeeDto {
+
+}

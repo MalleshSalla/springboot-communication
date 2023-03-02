@@ -1,0 +1,5 @@
+package com.salla.employeeservice.entity;
+
+public class Employee {
+
+}

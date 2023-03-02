@@ -1,0 +1,5 @@
+package com.salla.employeeservice.service.impl;
+
+public class EmployeeServiceImpl {
+
+}

@@ -1,0 +1,5 @@
+package com.salla.departmentservice.service;
+
+public class DepartmentService {
+
+}

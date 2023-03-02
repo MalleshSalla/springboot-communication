@@ -1,0 +1,5 @@
+package com.salla.departmentservice.controller;
+
+public class DepartmentController {
+
+}

@@ -1,0 +1,5 @@
+package com.salla.employeeservice.repository;
+
+public class EmployeeRepository {
+
+}

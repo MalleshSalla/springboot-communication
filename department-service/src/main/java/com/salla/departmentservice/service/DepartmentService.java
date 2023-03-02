@@ -1,0 +1,11 @@
+package com.salla.departmentservice.service;
+
+import com.salla.departmentservice.dto.DepartmentDto;
+
+public interface DepartmentService {
+	
+	DepartmentDto saveDepartment(DepartmentDto departmentDto);
+	
+	DepartmentDto findDepartmentByCode(String code);
+
+}

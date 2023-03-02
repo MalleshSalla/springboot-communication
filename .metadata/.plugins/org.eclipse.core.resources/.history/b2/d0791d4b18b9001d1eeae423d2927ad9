@@ -1,0 +1,5 @@
+package com.salla.employeeservice.controller;
+
+public class EmployeeController {
+
+}

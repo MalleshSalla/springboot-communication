@@ -1,0 +1,5 @@
+package com.salla.employeeservice.mapper;
+
+public class EmployeeMapper {
+
+}

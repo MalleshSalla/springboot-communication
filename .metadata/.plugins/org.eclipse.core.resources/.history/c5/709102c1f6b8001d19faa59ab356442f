@@ -1,0 +1,39 @@
+package com.salla.departmentservice.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.salla.departmentservice.dto.DepartmentDto;
+import com.salla.departmentservice.entity.Department;
+import com.salla.departmentservice.repository.DepartmentRepository;
+import com.salla.departmentservice.service.DepartmentService;
+
+import lombok.AllArgsConstructor;
+
+	
+@AllArgsConstructor
+@Service
+public class DepartmentServiceImpl implements DepartmentService{
+	
+	private DepartmentRepository departmentRepository;
+
+	@Override
+	public DepartmentDto saveDepartment(DepartmentDto departmentDto) {
+		
+		Department department = new Department();
+		department.setId(departmentDto.getId());
+		department.setDepartmentName(departmentDto.getDepartmentName());
+		department.setDepartmentDescription(departmentDto.getDepartmentDescription());
+		department.setDepartmentCode(departmentDto.getDepartmentCode());
+		Department saveDeparment = departmentRepository.save(department);
+		
+		DepartmentDto savedDepartmentDto = new DepartmentDto(
+				saveDeparment.getId(),
+				saveDeparment.getDepartmentName(),
+				saveDeparment.getDepartmentDescription(),
+				saveDeparment.getDepartmentCode()
+				);
+		
+		return savedDepartmentDto;
+	}
+
+}
