@@ -30,7 +30,7 @@ public class DepartmentController {
 	}
 	
 	@GetMapping("{department-code}")
-	public ResponseEntity<DepartmentDto> findDepartment(@PathVariable("department-code") String departmentCode){
+	public ResponseEntity<DepartmentDto> getDepartment(@PathVariable("department-code") String departmentCode){
 		DepartmentDto departmentDto = departmentService.findDepartmentByCode(departmentCode);
 		
 		return new ResponseEntity<>(departmentDto,HttpStatus.OK); 
