@@ -1,5 +1,6 @@
 package com.salla.employeeservice.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,6 +13,7 @@ import com.salla.employeeservice.dto.EmployeeDto;
 import com.salla.employeeservice.entity.Employee;
 import com.salla.employeeservice.mapper.EmployeeMapper;
 import com.salla.employeeservice.repository.EmployeeRepository;
+import com.salla.employeeservice.service.APIClient;
 import com.salla.employeeservice.service.EmployeeService;
 
 import lombok.AllArgsConstructor;
@@ -24,9 +26,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	// private RestTemplate restTemplate;
 
-	private WebClient webClient;
-
-
+	//private WebClient webClient;
+	@Autowired
+	private APIClient apiClient;
 
 	@Override
 	public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
@@ -51,9 +53,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		 * departmentDto=responseEntity.getBody();
 		 */
 
-		DepartmentDto departmentDto = webClient.get()
-				.uri("http://localhost:8080/api/departments/" + employee.getDepartmentCode()).retrieve()
-				.bodyToMono(DepartmentDto.class).block();
+		/*
+		 * DepartmentDto departmentDto = webClient.get()
+		 * .uri("http://localhost:8080/api/departments/" +
+		 * employee.getDepartmentCode()).retrieve()
+		 * .bodyToMono(DepartmentDto.class).block();
+		 */
+		
+		DepartmentDto departmentDto=apiClient.getDepartment(employee.getDepartmentCode());
 
 		EmployeeDto employeeDto = new EmployeeDto(employee.getId(), employee.getFirstName(), employee.getLastName(),
 				employee.getEmail(), employee.getDepartmentCode());
